@@ -1,0 +1,53 @@
+1.MVC（Model–view–controller）是软件工程中的一种软件架构模式，基于此模式把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。目的是通过这样的设计使程序结构更加简洁、直观，降低问题的复杂度。其中MVC各个组成部分为：
+
+视图（View）- UI设计人员进行图形界面设计，负责实现与用户交互。
+
+控制器（Controller）- 负责获取请求，处理请求，响应结果。
+
+模型（Model） - 模型层，负责业务逻辑判断，数据库存取。
+
+2.添加Spring Web依赖(提供了Spring MVC依赖支持)，这个依赖添加时，会关联下载一个Tomcat依赖(一个嵌入式Tomcat服务器)，代码如下：
+
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+3.@Controller 注解
+
+  标注一个类；
+
+  表示该类是一个控制器，负责处理用户的请求，并将处理结果生成响应返回给客户端。
+
+  @RequestMapping 注解
+
+  请求注解；
+
+  添加在控制器类或控制器方法上；
+
+  将HTTP请求映射到控制器中的方法，指定处理请求的路径
+
+  控制器类上：为整个控制器指定一个基础路径
+  控制器方法上：指定相对于基础路径的具体路径
+  @ResponseBody 注解
+
+  响应注解；
+
+  添加在控制器方法上；
+
+  可以使控制器方法通过返回值的方式将响应返回给客户端。
+
+  @RestController注解
+
+  注解作用于类上；
+
+  作用是将类中的方法返回值直接作为HTTP响应的内容；
+
+  在控制器类中加入该注解后，无需在每个方法上添加@ResponseBody注解；
+  4.POST http://localhost:8080/insert
+    Content-Type: application/json
+    (这必须空一行!!!)
+    {
+      "username":"xl",
+      "password":"123456",
+      "nickname":"小亮"
+    }

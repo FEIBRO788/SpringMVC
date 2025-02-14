@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.springmvc.mapper.UserMapper">
+    <select id="selectAll" resultType="cn.tedu.springmvc.enity.User">
+        select id,
+               username,
+               password,
+               nickname
+        from user;
+    </select>
+    <select id="getUserById" resultType="cn.tedu.springmvc.enity.User">
+        select id,
+               username,
+               password,
+               nickname
+
+        from user
+        where id = #{id};
+    </select>
+    <insert id="insert">
+        INSERT INTO user(username, password, nickname)
+        VALUES (#{username}, #{password}, #{nickname})
+    </insert>
+    <update id="updateUser">
+        update user
+        <set >
+            <if test="username!=null">username=#{username},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="nickname!=null">nickname=#{nickname},</if>
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="deleteUser">
+        delete from user
+        where id=#{id}
+    </delete>
+</mapper>
