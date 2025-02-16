@@ -1,0 +1,16 @@
+###
+POST http://localhost:8080/user/reg
+Content-Type: application/json
+
+{
+  "username": "xl",
+"password": "1111111",
+"nickname": "xianming"}
+###
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+"username": "1",
+  "password": "123456"
+}

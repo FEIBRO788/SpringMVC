@@ -1,0 +1,29 @@
+1.@RequestBody	接收客户端提交的复杂数据（如 JSON 对象）	POST、PUT
+@PathVariable	从 URL 路径中提取资源标识符（如 ID）	GET、DELETE
+2.
+1. @RestControllerAdvice
+@RestControllerAdvice 是 Spring 5 引入的一个注解，专门用于定义全局异常处理器。它结合了 @ControllerAdvice 和 @ResponseBody 的功能，使得异常处理方法能够返回 JSON 格式的响应。
+作用：
+定义全局异常处理逻辑，捕获并处理整个应用程序中抛出的异常。
+返回统一的 JSON 格式响应，便于前端统一处理。
+特点：
+可以捕获所有 @RestController 中抛出的异常。
+支持多种异常类型，通过 @ExceptionHandler 注解指定处理的异常类型。
+2. @ExceptionHandler
+@ExceptionHandler 是一个方法级别的注解，用于指定某个方法处理特定类型的异常。它可以捕获并处理指定的异常，并返回自定义的响应。
+作用：
+指定某个方法处理特定类型的异常。
+可以捕获控制器中抛出的异常，并返回统一的响应。
+特点：
+可以捕获多种异常类型。
+方法的返回值可以是 JsonResult、ResponseEntity 或其他自定义类型。
+3. @Slf4j
+@Slf4j 是 Lombok 提供的一个注解，用于自动生成 SLF4J 的 Logger 实例。它简化了日志记录的代码。
+作用：
+自动生成一个 private static final Logger log 实例。
+无需手动编写 Logger 的声明代码。
+优点：
+减少样板代码。
+提高代码的可读性和简洁性。
+3.username.matches("\\d+")：使用正则表达式 \\d+ 检查 username 是否只包含一个或多个数字。
+  \\d 表示数字（0-9），+ 表示一个或多个。
